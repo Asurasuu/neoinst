@@ -1,0 +1,113 @@
+/*общие настройки файла index.html*/
+
+*{
+    margin: 0%;
+}
+
+p{
+    margin: 15%;
+    font-size: 14px;
+    font-weight: bold;
+    color: gray;
+  }
+
+a {
+    font-size: 14px;
+    margin: 15%;
+    text-decoration: none;
+    color: gray
+}
+/*блок div в котором находяться 3 основных блока*/ 
+.index{
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+/*первая колонка*/
+.oneСolumn{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100vh;
+  background-color: white;
+}
+
+/*вторая колонка*/
+.twoСolumn{
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 50%;
+  height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: none; 
+}
+
+.twoСolumnDaughter{
+  -webkit-border-radius: 15px; 
+  border-radius: 15px; 
+  background-color: white; 
+  padding: 0.1%;
+  margin: 4%;
+}
+
+/*третья колонка*/
+.threeСolumn{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100vh;
+  background-color: #A3D0C3;
+}
+ 
+.threeСolumnDaughter{
+  -webkit-border-radius: 15px; 
+  border-radius: 15px; 
+  background-color: white; 
+  padding: 0.1%;
+  margin: 4%;
+}
+
+
+/*Окно поиска*/
+.search {
+    background: #A3D0C3;
+    padding-top: 1%;
+}
+.search input {
+  width: 100%;
+  height: 44px;
+  padding-left: 10px;
+  border: 2px solid #7BA7AB;
+  border-radius: 5px;
+  outline: none;
+  background: white;
+  color: #9E9C9C;
+}
+.search button {
+  position: absolute; 
+  top: 0;
+  width: 10%;
+  height: 100%;
+  right: 0;
+  border: none;
+  background: #7BA7AB;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+.search button:before {
+  content: "\f002";
+  font-family: FontAwesome;
+  font-size: 16px;
+  color: #F9F0DA;
+}
+
+.search form {
+    position: relative;
+    width: 80%;
+    margin: auto;
+  }
