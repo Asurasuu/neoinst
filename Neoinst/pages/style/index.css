@@ -1,0 +1,184 @@
+/*общие настройки файла index.html*/
+@import url("https://fonts.googleapis.com/css?family=Manrope:300,400,500,600,700&display=swap&subset=latin-ext");
+
+:root {
+  --body-font: "Manrope", sans-serif;
+}
+
+body{
+  font-family: var(--body-font);
+}
+
+*{
+    margin: 0%;
+}
+
+p{
+    margin: 15%;
+    font-size: 14px;
+    font-weight: bold;
+    color: gray;
+    font-family: var(--body-font);
+  }
+
+a {
+    font-size: 14px;
+    margin: 15%;
+    text-decoration: none;
+    color: gray
+}
+/*блок div в котором находяться 3 основных блока*/ 
+.index{
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+/*первая колонка*/
+.oneСolumn{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100vh;
+  background-color: white;
+}
+
+/*вторая колонка*/
+.twoСolumn{
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 50%;
+  height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: none; 
+}
+
+.twoСolumnDaughter{
+  -webkit-border-radius: 15px; 
+  border-radius: 15px; 
+  background-color: white; 
+  padding: 0.1%;
+  margin: 4%;
+}
+
+/*третья колонка*/
+.threeСolumn{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100vh;
+  background-color: #A3D0C3;
+}
+ 
+.threeСolumnDaughter{
+  -webkit-border-radius: 15px; 
+  border-radius: 15px; 
+  background-color: white; 
+  padding: 0.1%;
+  margin: 4%;
+}
+
+
+/*Окно поиска*/
+.search {
+  background: #A3D0C3;
+  padding-top: 1%;
+  position: relative;
+}
+.search input {
+width: 100%;
+height: 44px;
+padding-left: 10px;
+border: 2px solid #7BA7AB;
+border-radius: 5px;
+outline: none;
+background: white;
+color: #9E9C9C;
+}
+.search button {
+position: absolute; 
+top: 0;
+width: 8%;
+height: 100%;
+right: -15px;
+border: none;
+background: #7BA7AB;
+border-radius: 0 5px 5px 0;
+cursor: pointer;
+}
+.search button:before {
+content: "\f002";
+font-family: FontAwesome;
+font-size: 16px;
+color: #F9F0DA;
+}
+
+.search form {
+  position: relative;
+  width: 80%;
+  margin: auto;
+}
+
+/*Окно публикация*/
+.pub{
+}
+
+.pub button{
+  position: fixed;
+  border: none;
+  border-radius: 15px;
+  width: 15%;
+  height: 7%;
+  top: 90%;
+  left: 40%;
+  background: #7BA7AB;
+  cursor: pointer;
+  opacity: 0.5;
+
+}
+
+.pub a{
+  font-size: 23px;
+  color: black;
+  content: "\f002";
+  font-family: FontAwesome;
+}
+
+/*Кнопки в левом столбце*/
+.leftCollum {
+  margin-top: 20%;
+  margin-right: 35%;
+}
+
+.leftCollum button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: black;
+  font-family: FontAwesome;
+}
+
+.leftCollum a {
+  font-size: 32px;
+  color: rgb(1, 192, 192);
+}
+
+.icon-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.leftCollum p {
+  margin-left: 30%;
+  font-size: 14px;
+  font-weight: bold;
+  color: gray;
+  font-family: var(--body-font);
+  white-space: nowrap;
+}
