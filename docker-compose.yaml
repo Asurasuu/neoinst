@@ -1,14 +1,17 @@
 version: "3.8"
 
 services:
-    frontend:
-        container_name: nodejs-app-service
-        #image: "node:21"
-        build:
-            context: dockerfiles
-            dockerfile: node.Dockerfile
-        volumes:
-            - ./frontend:/neoinst/frontend
-        ports:
-            - "3000:3000"
-        command: ["npm", "start"]
+    backend:
+        container_name: python-app-service
+        
+    # frontend:
+    #     container_name: nodejs-app-service
+    #     #image: "node:21"
+    #     build:
+    #         context: dockerfiles
+    #         dockerfile: node.Dockerfile
+    #     volumes:
+    #         - ./frontend:/neoinst/frontend
+    #     ports:
+    #         - "3000:3000"
+    #     command: ["npm", "start"]
