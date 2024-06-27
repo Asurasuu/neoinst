@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!--Подключаю шрифты Awesome-->
+    <script src="https://kit.fontawesome.com/758af4b3e3.js" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+
+    <!-----------------Кнопка луны, тёмная тема----------------->
+    <div class="dark-light" id="themeToggle">
+        <i class="fa-regular fa-moon"></i>
+    </div>
+
+    <div class="container">
+        <div class="profile">
+            <div class="profile-header">
+                <a href="/index.html"><img src="neoDark.png" alt="profile" class="profile-img"></a>
+                <div class="profile-text-container">
+                    <h1 class="profile-title">Профиль</h1>
+                    <p class="profile-email">
+                        alextorpv@gmail.com
+                    </p>
+                </div>
+            </div>
+
+            <div class="menu">
+                <a href="#" class="menu-link"><i class="fa-solid fa-user-tie menu-icon"></i>Основные</a>
+                <a href="#" class="menu-link"><i class="fa-solid fa-key menu-icon"></i>Пароль</a>
+                <a href="#" class="menu-link"><i class="fa-solid fa-address-card menu-icon"></i>Профиль</a>
+                <a href="#" class="menu-link"><i class="fa-solid fa-right-from-bracket menu-icon"></i>Выйти</a>
+            </div>
+        </div>
+
+        <form class="account">
+            <div class="account-header">
+                <h1 class="account-title">Основное</h1>
+                <div class="btn-container">
+                    <button class="btn-ok">Сохранить</button>
+                    <button class="btn-cancel">Отмена</button>
+                </div>
+            </div>
+
+            <div class="account-edit">
+                <div class="input-container">
+                    <label>Фамилия</label>
+                    <input type="text" placeholder="Фамилия">
+                </div>
+                <div class="input-container">
+                    <label>Имя</label>
+                    <input type="text" placeholder="Имя">
+                </div>
+            </div>
+
+            <div class="account-edit">
+                <div class="input-container">
+                    <label>Email</label>
+                    <input type="text" placeholder="Email">
+                </div>
+                <div class="input-container">
+                    <label>Номер телефона</label>
+                    <input type="text" placeholder="Номер телефона">
+                </div>
+            </div>
+
+            <div class="account-edit">
+                <div class="input-container">
+                    <label>О себе</label>
+                    <input type="text" placeholder="О себе">
+                </div>
+            </div>
+            
+            <div class="account-edit">
+                <div class="input-container2">
+                    <label>Страна</label>
+                    <select class="custom-select">
+                        <option>Казахстан</option>
+                        <option selected>Россия</option>
+                        <option>Республика Беларусь</option>
+                        <option>Китай</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="/script/DarkAndWhite.js"></script>
+
+</body>
+</html>

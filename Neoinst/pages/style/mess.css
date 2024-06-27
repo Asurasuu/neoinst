@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+body.dark-theme {
+  --body-font: "Manrope", sans-serif;
+  --color-purple: #9508CD;
+  --color-black: #0b1114;
+  --color-white: white;
+  background-color: #0b1114;
+  --border-color: white;
+}
+
+body.light-theme {
+  --body-font: "Manrope", sans-serif;
+  --color-purple: #9508CD;
+  --color-black: white;
+  --color-white: black;
+  background-color: white;
+  --border-color: black;
+}
+
+
+body{
+  font-family: var(--body-font);
+  background-color: var(--color-black);
+  --body-font: "Manrope", sans-serif;
+  --color-purple: #9508CD;
+  --color-white: white;
+  --color-black: #0b1114;
+  --border-color: white;
+}
+
+*{
+    margin: 0%;
+    font-family: "Poppins", sans-serif;
+    outline: none;
+    box-sizing: border-box;
+}
+
+a {
+  font-size: 14px;
+  margin: 15%;
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+
+
+body {
+ background-color: var(--color-black);
+ font-family: var(--body-font);
+ color: var(--color-white);
+}
+
+
+
+.app {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    width: 80%;
+    height: 100vh;
+    overflow-y: auto;
+    scrollbar-width: none;  
+}
+
+/*-----------------------------Logo-----------------------------------*/
+.Logo {
+  margin-left: 5%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 17%;
+}
+
+.Logo img {
+  margin: 0;
+}
+
+.A {
+  margin-left: 2%;
+  margin-right: 0%;
+  font-size: 42px;
+  color: var(--color-white);
+}
+
+.B {
+  margin-left: 0%;
+  font-size: 42px;
+  color: var(--color-purple);
+}
+/*----------------------Панель нафигации слева----------------------------*/
+.Navigation {
+  margin-left: 10%;
+  display: flex;
+  align-items: center;
+}
+
+.Navigation a {
+  margin: 7%;
+  font-size: 16px;
+  color: var(--color-white);
+}
+
+.Navigation i {
+  color: var(--color-purple);
+  font-size: 30px;
+}
+
+
+
+
+/*-----------------------------------первая колонка------------------------------------------------*/
+.oneСolumn{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100vh;
+  background-color: var(--color-black);
+}
+
+
+.header {
+ height: 80px;
+ width: 100%;
+ border-bottom: 1px solid var(--border-color);
+ border-color: var(--border-color);/*одна из полос*/
+ display: flex;
+ align-items: center;
+ padding: 0 20px;
+}
+
+.wrapper {
+ width: 100%;
+ height: 89%;
+ display: flex;
+ flex-grow: 1;
+ overflow: hidden;
+ border-right: 1px solid var(--border-color);
+}
+
+.conversation-area,
+.detail-area {
+ width: 340px;
+ flex-shrink: 0;
+}
+
+.detail-area {
+ border-left: 1px solid var(--border-color);
+ margin-left: auto;
+ padding: 30px 30px 0 30px;
+ display: flex;
+ flex-direction: column;
+ overflow: auto;
+}
+
+.chat-area {
+ flex-grow: 1;
+}
+
+
+/*-------------------поле ввода сообщений----------------------*/
+ input {
+  height: 100%;
+  width: 100%;
+  display: block;
+  background-color: transparent;
+  border: none;
+  color: var(--color-white);
+  padding: 0;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  background-position: 25px 48%;
+  font-family: var(--body-font);
+  font-weight: 600;
+  font-size: 15px;
+ }
+
+
+
+/*----------------------Луна справа сверху--------------------------------*/
+.dark-light {
+ position: fixed;
+ align-self: center;
+ margin-left: 75%;
+ color: var(--color-purple);
+ flex-shrink: 0;
+}
+
+.dark-light i {
+  font-size: 28px;
+}
+
+
+/*-------------------------Настройка размера изображений------------------------------------------------*/
+.user-profile {
+ width: 40px;
+ height: 40px;
+ border-radius: 50%;
+}
+
+.msg-profile {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+ }
+
+/*------------------------Панель с пользователями----------------------*/
+.conversation-area {
+ border-right: 1px solid var(--border-color);
+ border-color: var(--border-color);/*одна из полос*/
+ overflow-y: auto;
+ overflow-x: hidden;
+ display: flex;
+ flex-direction: column;
+ position: relative;
+}
+
+
+
+.msg {
+ display: flex;
+ align-items: center;
+ padding: 20px;
+ cursor: pointer;
+ transition: 0.2s;
+ position: relative;
+
+}
+
+.msg-username {
+ margin-bottom: 4px;
+ font-weight: 600;
+ font-size: 15px;
+}
+
+
+
+.msg-message {
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ color: var(--msg-message);
+}
+
+.msg-date {
+ font-size: 14px;
+ color: var(--msg-date);
+ margin-left: 3px;
+}
+
+
+/*----------------------------Кнопка добавить-------------------------------------------*/
+.add {
+ position: sticky;
+ bottom: 25px;
+ background-color: var(--color-purple);
+ width: 60px;
+ height: 60px;
+ border: 0;
+ border-radius: 50%;
+ background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-plus'%3e%3cpath d='M12 5v14M5 12h14'/%3e%3c/svg%3e");
+ background-repeat: no-repeat;
+ background-position: 50%;
+ background-size: 28px;
+ box-shadow: 0 0 16px var(--color-purple);
+ margin: auto auto -55px;
+ flex-shrink: 0;
+ z-index: 1;
+ cursor: pointer;
+}
+
+.overlay {
+ position: sticky;
+ bottom: 0;
+ left: 0;
+ width: 340px;
+
+ height: 80px;
+}
+
+
+/*---------------окно-----------------------*/
+
+.chat-area-main {
+  padding-top: 15px;
+}
+
+.chat-msg-img {
+ height: 40px;
+ width: 40px;
+ border-radius: 50%;
+ object-fit: cover;
+}
+
+.chat-msg-profile {
+ flex-shrink: 0;
+ margin-top: auto;
+ margin-bottom: -20px;
+ position: relative;
+}
+
+.chat-msg-date {
+ position: absolute;
+ left: calc(100% + 12px);
+ bottom: 0;
+ font-size: 12px;
+ font-weight: 600;
+ color: var(--color-white);
+ white-space: nowrap;
+}
+
+.chat-msg {
+ display: flex;
+ padding: 0 20px 45px;
+ &-content {
+  margin-left: 12px;
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+ }
+ &-text {
+  background-color: var(--color-black);
+  padding: 15px;
+  border-radius: 20px 20px 20px 0;
+  line-height: 1.5;
+  font-size: 14px;
+  font-weight: 500;
+  & + & {
+   margin-top: 10px;
+  }
+ }
+}
+
+.chat-msg-text {
+ color: var(--color-white);
+ padding-left: 10px;
+}
+
+.owner {
+ flex-direction: row-reverse;
+ .chat-msg-content {
+  margin-left: 0;
+  margin-right: 12px;
+  align-items: flex-end;
+ }
+
+ /*---------------Поле ввода сообщений--------------*/
+ .chat-msg-date {
+  left: auto;
+  right: calc(100% + 12px);
+ }
+}
+
+.chat-msg-text img {
+ max-width: 300px;
+ width: 100%;
+}
+
+.chat-area-footer {
+    margin-top: 28%;
+    display: flex;
+    border-top: 1px solid var(--color-purple);
+    width: 100%;
+    padding: 10px 20px;
+    align-items: center;
+    background-color: var(--color-black);
+    position:sticky;
+    bottom: 0;
+    left: 0;
+    border-radius: 1px;
+}
+
+
+.chat-area-footer input {
+ border: none;
+ color: var(--body-color);
+ background-color: var(--input-bg);
+ padding: 12px;
+ border-radius: 6px;
+ font-size: 15px;
+ margin: 0 12px;
+ width: 100%;
+}
+
+.detail-area-header {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+
+
+/*-------------------------------Окно поиска--------------------------------*/
+.search {
+  padding-top: 1%;
+  position: relative;
+  padding-left: 40%;
+}
+.search input {
+width: 400px;
+height: 44px;
+padding-left: 10px;
+border: 2px solid var(--color-purple);
+border-radius: 5px;
+outline: none;
+background: var(--color-black);
+color: var(--color-white);
+}
+
+.search button {
+position: absolute; 
+top: 0;
+width: 20%;
+height: 100%;
+right: -80px;
+border: none;
+background: var(--color-purple);
+border-radius: 0 5px 5px 0;
+cursor: pointer;
+}
+
+.search button:before {
+content: "\f002";
+font-family: FontAwesome;
+font-size: 16px;
+color: var(--color-white);
+}
+
+.search form {
+  position: relative;
+  width: 80%;
+  margin: auto;
+}
+
+
+/*-----------------Кнопки возле отправки сообщения--------------------*/
+.transparent-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-purple);
+}
+

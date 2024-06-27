@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/31b0575cc7.js" crossorigin="anonymous"></script>
+    <title>Landing</title>
+</head>
+<body>
+    <!--------------------navigation----------------------->
+    <div id="header">
+        <div class="container">
+            <nav>
+                <a href="/index.html"><img src="image/neoDark.png" class="logo"></a>
+                <ul>
+                    <li><a href="#header">Главная</a></li>
+                    <li><a href="#about1">О нас</a></li>
+                    <li><a href="#services">Преимущества</a></li>
+                    <li><a href="#portfolio">Галерея</a></li>
+                    <li><a href="#book">Практ. руководство</a></li>
+                    <li>           
+                        <!-----------------Кнопка луны, тёмная тема----------------->
+                        <div class="dark-light" id="themeToggle">
+                            <i class="fa-regular fa-moon"></i>
+                        </div> 
+                        
+                    </li>
+                </ul>
+                
+            </nav>
+
+
+            <div class="header-text">
+                <h1>NEON<span>inst</span></h1>
+                <p>Мы - <span></span>Самая студенческая<br>Cоциальная сеть</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!------------------about------------------>
+    <div id="about1">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="image/user1.png">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">Команда разработчиков</h1>
+                    <p>
+                        <h2>Торопов Александр. Маркетолог</h2>
+                        Я являюсь маркетологом компании Neonist. Мне 21 год, я студент факультета МИФиТ.
+                        Учусь на направлении "Прикладная информатика". В данный момент учусь на 3 курсе
+                        и надеюсь, что сдам сессию на "Отлично".
+                    </p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab(event, 'skills1')">Навыки</p>
+                        <p class="tab-links" onclick="opentab(event, 'hobby1')">Хобби</p>
+                        <p class="tab-links" onclick="opentab(event, 'info1')">Краткая информация</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills1">
+                        <ul>
+                            <li><span>WEB</span><br>HTML, CSS, JavaScript, ReactJS</li>
+                            <li><span>Системное администрирование<br></span>Обслуживание ПК, резервное копирование данных</li>
+                            <li><span>Кодинг<br></span>Python/C#</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="hobby1">
+                        <ul>
+                            <li><span>Гейминг</span><br>CS 2, League of Legends, Battlefield 2042, Age Of Empires</li>
+                            <li><span>Спорт<br></span>Фитнесс, Флорбол</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="info1">
+                        <ul>
+                            <li><span>Телефон</span><br>+7(913)680-92-87</li>
+                            <li><span>Email<br></span>alextorpv@gmail.com</li>
+                            <li><span>Telegram<br></span>https://t.me/Lonni_27</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="about2">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="image/user2.jpg">
+                </div>
+                <div class="about-col-2">
+                    <p>
+                        <h2>Новоселов Андрей. Технический редактор</h2>
+                        Я Андрей — бэкенд-программист, работаю над веб-сайтами.
+                        Сейчас я учусь на профиль "Прикладная информатика" в
+                        университете, стремясь расширить свои знания и навыки. В
+                        свободное время предпочитаю заниматься кроссфитом и
+                        наслаждаться играми, находя баланс между умственной и физической активностью. 
+                    </p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab(event, 'skills2')">Навыки</p>
+                        <p class="tab-links" onclick="opentab(event, 'hobby2')">Хобби</p>
+                        <p class="tab-links" onclick="opentab(event, 'info2')">Краткая информация</п>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills2">
+                        <ul>
+                            <li><span>Backend</span><br>Рython/PHP/Node.js</li>
+                            <li><span>База данных<br></span>MySQL/PostgreSQL</li>
+                            <li><span>Кодинг<br></span>Python/C#/C++/Java/JavaScript</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="hobby2">
+                        <ul>
+                            <li><span>Гейминг</span><br>Factorio, CS 2, Terraria</li>
+                            <li><span>Cпорт<br></span>Кроссфит, баскетбол</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="info2">
+                        <ul>
+                            <li><span>Телефон</span><br>+7(950)781-04-02</li>
+                            <li><span>Email<br></span>asurasuu@yandex.ru</li>
+                            <li><span>Telegram<br></span>https://t.me/asurasuu</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="about3">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-3">
+                    <img src="image/user3.jpg">
+                </div>
+                <div class="about-col-4">
+                    <p>
+                        <h2>Ахметов Канат. Идеолог</h2>
+                        Меня зовут Канат, я студент, обучающийся на профиле
+                        "Прикладная информатика", увлекаюсь 3D-моделированием в программе Blender, веб-разработкой и мобильной
+                        разработкой. В свободное время также создаю векторные
+                        изображения и нахожу развлечение в компьютерных играх и просмотре фильмов.
+                    </p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab(event, 'skills3')">Навыки</p>
+                        <p class="tab-links" onclick="opentab(event, 'hobby3')">Хобби</p>
+                        <p class="tab-links" onclick="opentab(event, 'info3')">Краткая информация</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills3">
+                        <ul>
+                            <li><span>WEB</span><br>HTML, CSS, JavaScript, XML</li>
+                            <li><span>Мобильная разработка<br></span>Xamarin, Kotlin</li>
+                            <li><span>3D-моделирование<br></span>Blender, SketchFab</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="hobby3">
+                        <il>
+                            <li><span>Гейминг</span><br>Тетрис, Phasmofobia, Lethal Company, UNO</li>
+                            <li><span>Спорт<br></span>Скандинавская ходьба, воллейбол</li>
+                    </ul>
+                    </div>
+                    <div class="tab-contents" id="info3">
+                    <ul>
+                            <li><span>Телефон</span><br>+7(996)074-03-23</li>
+                            <li><span>Email<br></span>ahmetovkanat840@gmail.com</li>
+                            <li><span>Telegram<br></span>https://t.me/Kenneth0fficial</li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!----------------------Screens----------------------------->
+
+    <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">Галерея NeonInst</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="image/work1.png">
+                    <div class="layer">
+                        <h3>Лента новостей</h3>
+                        <p>Лента отображает различные фото и видео пользователей</p>
+                        <a href="#"><i class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="image/work5.png">
+                    <div class="layer">
+                        <h3>Мессенджер</h3>
+                        <p>В мессенджере, вы можете переписываться с другими пользователями</p>
+                        <a href="#"><i class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="image/work2.png">
+                    <div class="layer">
+                        <h3>Профиль</h3>
+                        <p>В профиле хранится основная информация о пользователе</p>
+                        <a href="#"><i class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn">NeonInst</a>
+        </div>
+    </div>
+
+    <!-------------------book-------------------------->
+
+    <div id="book">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Практическое руководство</h1>
+                    <p>Здесь вы сможете ознакомиться с теоритическими материалами и узнать
+                        как создавалось это WEB-приложение.
+                    </p>
+                    <a href="image/book.pdf" class="btn btn2">Скачать руководство</a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright NeonInst. Сделано с <i class="fa-solid fa-heart"></i> любовью к вам:)</p>
+        </div>
+    </div>
+
+
+<script>
+
+function opentab(event, tabname) {
+    // Находим контейнер, который содержит текущие вкладки
+    let container = event.currentTarget.closest('.container');
+    
+    // Убираем активный класс у всех табов в текущем контейнере
+    let tablinks = container.getElementsByClassName('tab-links');
+    let tabcontents = container.getElementsByClassName('tab-contents');
+    
+    for (let tablink of tablinks) {
+        tablink.classList.remove('active-link');    
+    }
+    for (let tabcontent of tabcontents) {
+        tabcontent.classList.remove('active-tab'); 
+    }
+
+    // Добавляем активный класс текущему табу
+    event.currentTarget.classList.add('active-link');
+    document.getElementById(tabname).classList.add('active-tab');
+
+}
+
+
+</script>
+
+<script src="/script/DarkAndWhite.js"></script>
+</body>
+</html>
