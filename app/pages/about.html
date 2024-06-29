@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', path='/style_about.css') }}">
     <script src="https://kit.fontawesome.com/31b0575cc7.js" crossorigin="anonymous"></script>
     <title>Landing</title>
 </head>
@@ -13,7 +13,7 @@
     <div id="header">
         <div class="container">
             <nav>
-                <a href="/index.html"><img src="image/neoDark.png" class="logo"></a>
+                <a href="/"><img src="{{ url_for('images', path = '/neoDark.png') }}" class="logo"></a>
                 <ul>
                     <li><a href="#header">Главная</a></li>
                     <li><a href="#about1">О нас</a></li>
@@ -47,7 +47,7 @@
         <div class="container">
             <div class="row">
                 <div class="about-col-1">
-                    <img src="image/user1.png">
+                    <img src="{{ url_for('images', path='/about_us/user1.png' ) }}">
                 </div>
                 <div class="about-col-2">
                     <h1 class="sub-title">Команда разработчиков</h1>
@@ -91,7 +91,7 @@
         <div class="container">
             <div class="row">
                 <div class="about-col-1">
-                    <img src="image/user2.jpg">
+                    <img src="{{ url_for('images', path='/about_us/user2.jpg' ) }}">
                 </div>
                 <div class="about-col-2">
                     <p>
@@ -136,7 +136,7 @@
         <div class="container">
             <div class="row">
                 <div class="about-col-3">
-                    <img src="image/user3.jpg">
+                    <img src="{{ url_for('images', path='/about_us/user3.jpg' ) }}">
                 </div>
                 <div class="about-col-4">
                     <p>
@@ -183,7 +183,7 @@
             <h1 class="sub-title">Галерея NeonInst</h1>
             <div class="work-list">
                 <div class="work">
-                    <img src="image/work1.png">
+                    <img src="{{ url_for('images', path='/about_us/work1.png' ) }}">
                     <div class="layer">
                         <h3>Лента новостей</h3>
                         <p>Лента отображает различные фото и видео пользователей</p>
@@ -191,7 +191,7 @@
                     </div>
                 </div>
                 <div class="work">
-                    <img src="image/work5.png">
+                    <img src="{{ url_for('images', path='/about_us/work5.png' ) }}">
                     <div class="layer">
                         <h3>Мессенджер</h3>
                         <p>В мессенджере, вы можете переписываться с другими пользователями</p>
@@ -199,7 +199,7 @@
                     </div>
                 </div>
                 <div class="work">
-                    <img src="image/work2.png">
+                    <img src="{{ url_for('images', path='/about_us/work2.png' ) }}">
                     <div class="layer">
                         <h3>Профиль</h3>
                         <p>В профиле хранится основная информация о пользователе</p>
@@ -221,7 +221,7 @@
                     <p>Здесь вы сможете ознакомиться с теоритическими материалами и узнать
                         как создавалось это WEB-приложение.
                     </p>
-                    <a href="image/book.pdf" class="btn btn2">Скачать руководство</a>
+                    <a href="{{ url_for('images', path='/about_us/book.pdf' ) }}" target="_blank" class="btn btn2">Скачать руководство</a>
                 </div>
             </div>
         </div>
@@ -257,6 +257,6 @@ function opentab(event, tabname) {
 
 </script>
 
-<script src="/script/DarkAndWhite.js"></script>
+<script src="{{ url_for('static', path='/DarkAndWhite.js') }}"></script>
 </body>
 </html>

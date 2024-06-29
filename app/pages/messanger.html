@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeoInst</title>
 
-    <link rel="stylesheet" href="style/mess.css">
+    <link rel="stylesheet" href="{{ url_for('static', path = 'mess.css') }}">
     <!--Подключаю шрифты Awesome-->
     <script src="https://kit.fontawesome.com/758af4b3e3.js" crossorigin="anonymous"></script>
 
@@ -17,7 +17,7 @@
 <div class="oneСolumn"> 
 
   <div class="Logo">
-    <img src="components/index/neoDark.png"></img>
+    <img src="{{ url_for('images', path = 'neoDark.png') }}"></img>
     <a class="A">NEON</a>
     <a class="B">inst</a>
 
@@ -25,30 +25,32 @@
 
     <div class="Navigation">
       <i class="fa-regular fa-user"></i>
-      <a href="profile/index.html">Профиль</a>
+      <a href="/profile">Профиль</a>
     </div>
 
     <div class="Navigation">
       <i class="fa-regular fa-message"></i>
-      <a href="mess.html">Мессенджер</a>
+      <a href="/messanger">Мессенджер</a>
     </div>
 
     <div class="Navigation">
       <i class="fa-regular fa-compass"></i>          
-      <a href="index.html">Лента</a>
+      <a href="/">Лента</a>
     </div>
 
     <div class="Navigation">
       <i class="fa-solid fa-people-group"></i>          
-      <a href="abouts/index.html">Landing</a>
+      <a href="/about">О проекте</a>
     </div>
 
     <div class="Navigation">
       <i class="fa-solid fa-gear"></i>         
-      <a href="setting/index.html">Настройки</a>
+      <a href="/settings">Настройки</a>
     </div>
 
   </div>
+
+</div>
 
     <div class="app">
         <div class="header">
@@ -70,13 +72,13 @@
         
 
 <!--столбец с друзьями-->
-         <div class="user-settings">
-         </div>
+        <div class="user-settings">
+        </div>
         </div>
         <div class="wrapper">
          <div class="conversation-area">
           <div class="msg">
-           <img class="msg-profile" src="components/mess/ава-саня.jpg" alt="" />
+           <img class="msg-profile" src="{{ url_for('images', path = '/avatars/alexander.jpg') }}" alt="" />
            <div class="msg-detail">
             <div class="msg-username">Александр Торопов</div>
             <div class="msg-content">
@@ -86,7 +88,7 @@
            </div>
           </div>
           <div class="msg">
-           <img class="msg-profile" src="components/mess/ава-андрей.jpg" alt="" />
+           <img class="msg-profile" src="{{ url_for('images', path = '/avatars/andrey.jpg') }}" alt="" />
            <div class="msg-detail">
             <div class="msg-username">Андрей Новоселов</div>
             <div class="msg-content">
@@ -108,7 +110,7 @@
           <div class="chat-area-main">
            <div class="chat-msg">
             <div class="chat-msg-profile">
-             <img class="chat-msg-img" src="components/mess/ава-саня.jpg" />
+             <img class="chat-msg-img" src="{{ url_for('images', path = '/avatars/alexander.jpg') }}" />
              <div class="chat-msg-date">Message seen 1.22pm</div>
             </div>
             <div class="chat-msg-content">
@@ -119,7 +121,7 @@
            </div>
            <div class="chat-msg owner">
             <div class="chat-msg-profile">
-             <img class="chat-msg-img" src="components/mess/ава-канат.jpg" />
+             <img class="chat-msg-img" src="{{ url_for('images', path = '/avatars/khanat.jpg') }}" />
              <div class="chat-msg-date">Message seen 1.22pm</div>
             </div>
             <div class="chat-msg-content">
@@ -131,7 +133,7 @@
 
            <div class="chat-msg">
             <div class="chat-msg-profile">
-             <img class="chat-msg-img" src="components/mess/ава-андрей.jpg"/>
+             <img class="chat-msg-img" src="{{ url_for('images', path = '/avatars/andrey.jpg') }}"/>
              <div class="chat-msg-date">Message seen 3.16pm</div>
             </div>
             <div class="chat-msg-content">
@@ -140,7 +142,7 @@
            </div>
            <div class="chat-msg">
             <div class="chat-msg-profile">
-             <img class="chat-msg-img" src="components/mess/ава-саня.jpg">
+             <img class="chat-msg-img" src="{{ url_for('images', path = '/avatars/alexander.jpg') }}">
              <div class="chat-msg-date">Message seen 3.16pm</div>
             </div>
             <div class="chat-msg-content">
@@ -149,7 +151,7 @@
            </div>
            <div class="chat-msg owner">
             <div class="chat-msg-profile">
-             <img class="chat-msg-img" src="components/mess/ава-канат.jpg"/>
+             <img class="chat-msg-img" src="{{ url_for('images', path = '/avatars/khanat.jpg') }}"/>
              <div class="chat-msg-date">Message seen 2.50pm</div>
             </div>
             <div class="chat-msg-content">
@@ -171,6 +173,6 @@
         </div>
        </div>
 
-       <script src="script/DarkAndWhite.js"></script>
+       <script src="{{ url_for('static', path = '/DarkAndWhite.js') }}"></script>
 </body>
 </html>
