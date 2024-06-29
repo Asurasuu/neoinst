@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+body.dark-theme {
+    --background: #0b1114;
+    --profile: #262626;
+    --text: aliceblue;
+  }
+  
+  body.light-theme {
+    --background: rgb(221, 221, 221);
+    --profile: rgb(168, 168, 168);
+    --text: #0b1114;
+  }
+
+body {
+    background-color: var(--background);
+}
+
+
+.container {
+    display: flex;
+    margin: 30px;
+}
+
+.profile {
+    flex: 1;
+    margin-right: 10px;
+    background-color: var(--profile);
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    height: max-content;
+}
+
+.profile-header {
+    display: flex;
+    margin-left: 15px;
+
+}
+
+.profile img {
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+}
+
+.profile-text-container {
+    line-height: 0.5;
+}
+
+.profile-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    color: var(--text);
+}
+
+.profile-email {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    color: var(--text);
+}
+
+.menu {
+    margin: 0 20px;
+}
+
+.menu-link {
+    display: block;
+    text-decoration: none;
+    color: var(--text);
+    font-family: "Poppins", sans-serif;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.menu-icon {
+    margin-right: 10px;
+}
+
+.menu-link:first-child {
+    color: var(--text);
+    background-color: #9508CD;
+}
+
+.menu-link:hover {
+    background-color: #5d6061;
+    color: var(--text);
+}
+
+.menu-link:first-child:hover {
+    background-color: #9508CD;
+    color: var(--text);
+}
+
+.account {
+    flex: 2;
+    margin-left: 10px;
+    background-color: var(--profile);
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    height: max-content;
+}
+
+.account-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid var(--text);
+}
+
+.account-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    color: var(--text);
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.btn-container {
+    margin-right: 5px;
+}
+
+.btn-ok {
+    width: 8em; 
+    height: 3em;
+    cursor: pointer;
+    border: 1px solid #0b1114;
+    border-radius: 5px;
+    color: var(--text);
+    font-weight: bold;
+    margin-right: 6px;
+    background-color: #9508CD;
+    transition-duration: 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.25);
+}
+
+.btn-ok:hover {
+    background-color: #5d6061;
+}
+
+.btn-cancel {
+    width: 8em; 
+    height: 3em;
+    cursor: pointer;
+    border: 1px solid #0b1114;
+    border-radius: 5px;
+    color: var(--text);
+    font-weight: bold;
+    margin-right: 6px;
+    background-color: #768499;
+    transition-duration: 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.25);
+}
+
+.btn-cancel:hover {
+    background-color: #5d6061;
+}
+
+.account-edit {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.input-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.input-container label {
+    font-family: "Poppins", sans-serif;
+    color: var(--text);
+    font-size: 14px;
+}
+
+.input-container input {
+    height: 25px;
+    border: 1.5px solid #5d6061;
+    border-radius: 5px;
+    padding: 5px;
+    color: #5d6061;
+    font-family: "Poppins", sans-serif;
+}
+
+.input-container input:focus {
+    outline: none;
+    border: 1.5px solid #9508CD;
+}
+
+.input-container textarea {
+    display: block;
+    width: 100%;
+    height: 100px;
+    padding: 5px;
+    border: 1.5px solid #5d6061;
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+    color: #5d6061;
+}
+
+.input-container textarea:focus {
+    outline: none;
+    border: 1.5px solid #9508CD;
+}
+
+.input-container2 label {
+    font-family: "Poppins", sans-serif;
+    color: var(--text);
+    font-size: 14px;
+}
+
+.input-container2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.input-container2 input {
+    height: 25px;
+    border: 1.5px solid #5d6061;
+    border-radius: 5px;
+    padding: 5px;
+    color: #5d6061;
+    font-family: "Poppins", sans-serif;
+}
+
+.input-container2 input:focus {
+    outline: none;
+    border: 1.5px solid #9508CD;
+}
+
+.input-container2 textarea {
+    display: block;
+    width: 100%;
+    height: 100px;
+    padding: 5px;
+    border: 1.5px solid #5d6061;
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+    color: #5d6061;
+}
+
+.input-container2 textarea:focus {
+    outline: none;
+    border: 1.5px solid #9508CD;
+}
+
+
+/*----------------------Луна справа сверху--------------------------------*/
+.dark-light {
+    color: #9508CD;
+    margin-left: 97%;
+    margin-top: 1.7%;
+   }
+   
+   .dark-light i {
+     font-size: 28px;
+     margin: 0;
+     cursor: pointer;
+   }
+   
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .profile {
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+
+    .account {
+        margin: 0;
+    }
+
+    .account-header {
+        flex-direction: column;
+    }
+
+    .account-edit {
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .input-container {
+        margin: 10px;
+    }
+
+    .input-container input {
+        margin-right: 10px;
+    }
+
+    .input-container textarea {
+        display: block;
+        width: auto;
+        margin-right: 10px;
+    }
+
+    .input-container2 {
+        margin: 10px;
+    }
+
+    .input-container2 input {
+        margin-right: 10px;
+    }
+
+    .input-container2 textarea {
+        display: block;
+        width: auto;
+        margin-right: 10px;
+    }
+}

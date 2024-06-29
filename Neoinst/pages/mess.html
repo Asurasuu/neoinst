@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoInst</title>
+
+    <link rel="stylesheet" href="style/mess.css">
+    <!--Подключаю шрифты Awesome-->
+    <script src="https://kit.fontawesome.com/758af4b3e3.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    
+
+<!----------------------Панель навигации---------------------------------->
+<div class="oneСolumn"> 
+
+  <div class="Logo">
+    <img src="components/index/neoDark.png"></img>
+    <a class="A">NEON</a>
+    <a class="B">inst</a>
+
+  </div>
+
+    <div class="Navigation">
+      <i class="fa-regular fa-user"></i>
+      <a href="profile/index.html">Профиль</a>
+    </div>
+
+    <div class="Navigation">
+      <i class="fa-regular fa-message"></i>
+      <a href="mess.html">Мессенджер</a>
+    </div>
+
+    <div class="Navigation">
+      <i class="fa-regular fa-compass"></i>          
+      <a href="index.html">Лента</a>
+    </div>
+
+    <div class="Navigation">
+      <i class="fa-solid fa-people-group"></i>          
+      <a href="abouts/index.html">Landing</a>
+    </div>
+
+    <div class="Navigation">
+      <i class="fa-solid fa-gear"></i>         
+      <a href="setting/index.html">Настройки</a>
+    </div>
+
+  </div>
+
+    <div class="app">
+        <div class="header">
+
+
+<!-----------------Кнопка луны, тёмная тема----------------->
+      <div class="dark-light" id="themeToggle">
+          <i class="fa-regular fa-moon"></i>
+      </div>
+
+
+<!--Поиск-->
+        <div class="search">
+          <form>
+            <input type="text" placeholder="Искать здесь...">
+            <button type="submit"></button>
+          </form>
+        </div>
+        
+
+<!--столбец с друзьями-->
+         <div class="user-settings">
+         </div>
+        </div>
+        <div class="wrapper">
+         <div class="conversation-area">
+          <div class="msg">
+           <img class="msg-profile" src="components/mess/ава-саня.jpg" alt="" />
+           <div class="msg-detail">
+            <div class="msg-username">Александр Торопов</div>
+            <div class="msg-content">
+             <span class="msg-message">Великий cs-сер</span>
+             <span class="msg-date">1day</span>
+            </div>
+           </div>
+          </div>
+          <div class="msg">
+           <img class="msg-profile" src="components/mess/ава-андрей.jpg" alt="" />
+           <div class="msg-detail">
+            <div class="msg-username">Андрей Новоселов</div>
+            <div class="msg-content">
+             <span class="msg-message">Кроссфитер (жмёт сотку)</span>
+             <span class="msg-date">1day</span>
+            </div>
+           </div>
+          </div>
+          <button class="add"></button>
+          <div class="overlay"></div>
+         </div>
+         <div class="chat-area">
+          <div class="chat-area-header">
+           <div class="chat-area-group">
+          </div>
+        </div>
+
+<!--Мессенджер--> 
+          <div class="chat-area-main">
+           <div class="chat-msg">
+            <div class="chat-msg-profile">
+             <img class="chat-msg-img" src="components/mess/ава-саня.jpg" />
+             <div class="chat-msg-date">Message seen 1.22pm</div>
+            </div>
+            <div class="chat-msg-content">
+             <div class="chat-msg-text">
+              </div>
+             <div class="chat-msg-text">Привет, как дела?</div>
+            </div>
+           </div>
+           <div class="chat-msg owner">
+            <div class="chat-msg-profile">
+             <img class="chat-msg-img" src="components/mess/ава-канат.jpg" />
+             <div class="chat-msg-date">Message seen 1.22pm</div>
+            </div>
+            <div class="chat-msg-content">
+             <div class="chat-msg-text">Хорошо</div>
+            </div>
+           </div>
+
+
+
+           <div class="chat-msg">
+            <div class="chat-msg-profile">
+             <img class="chat-msg-img" src="components/mess/ава-андрей.jpg"/>
+             <div class="chat-msg-date">Message seen 3.16pm</div>
+            </div>
+            <div class="chat-msg-content">
+             <div class="chat-msg-text">Привет</div>
+            </div>
+           </div>
+           <div class="chat-msg">
+            <div class="chat-msg-profile">
+             <img class="chat-msg-img" src="components/mess/ава-саня.jpg">
+             <div class="chat-msg-date">Message seen 3.16pm</div>
+            </div>
+            <div class="chat-msg-content">
+             <div class="chat-msg-text">Понятно, у меня тоже</div>
+            </div>
+           </div>
+           <div class="chat-msg owner">
+            <div class="chat-msg-profile">
+             <img class="chat-msg-img" src="components/mess/ава-канат.jpg"/>
+             <div class="chat-msg-date">Message seen 2.50pm</div>
+            </div>
+            <div class="chat-msg-content">
+             <div class="chat-msg-text">Тебе тоже привет</div>
+            </div>
+           </div>
+
+
+          <div class="chat-area-footer">
+
+            <button class="transparent-button"><i class="fa" style="font-size:24px">&#xf0c6;</i></button>
+            
+           <input type="text" placeholder="Type something here..." />
+           
+           <button class="transparent-button"><i class="fa" style="font-size:24px">&#xf1b0;</i></button>
+          </div>
+         </div>
+
+        </div>
+       </div>
+
+       <script src="script/DarkAndWhite.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+/*общие настройки файла index.html*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/*--------------Тёмная и светла тема----------------------*/
+body.dark-theme {
+  --body-font: "Manrope", sans-serif;
+  --color-purple: #9508CD;
+  --color-black: #0b1114;
+  --color-white: white;
+  background-color: #0b1114;
+}
+
+body.light-theme {
+  --body-font: "Manrope", sans-serif;
+  --color-purple: #9508CD;
+  --color-black: white;
+  --color-white: black;
+  background-color: white;
+}
+
+
+
+body{
+  --body-font: "Manrope", sans-serif;
+  --color-purple: #9508CD;
+  --color-black: #0b1114;
+  --color-white: white;
+  --color-threeCol: #0b1114;
+  --color-moon: #9508CD;
+  background-color: #0b1114;
+
+  font-family: var(--body-font);
+  transition: background-color 0.3s ease;
+}
+
+*{
+    margin: 0%;
+    font-family: "Poppins", sans-serif;
+}
+
+p{
+    margin: 15%;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--color-white);
+    font-family: var(--body-font);
+  }
+
+a {
+    font-size: 14px;
+    margin: 15%;
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+/*-----------------------------Logo-----------------------------------*/
+.Logo {
+  margin-left: 5%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 17%;
+}
+
+.Logo img {
+  margin: 0;
+}
+
+.A {
+  margin-left: 2%;
+  margin-right: 0%;
+  font-size: 42px;
+  color: var(--color-white);
+}
+
+.B {
+  margin-left: 0%;
+  font-size: 42px;
+  color: var(--color-purple);
+}
+/*----------------------Панель нафигации слева----------------------------*/
+.Navigation {
+  margin-left: 10%;
+  display: flex;
+  align-items: center;
+}
+
+.Navigation a {
+  margin: 7%;
+  font-size: 16px;
+  color: var(--color-white);
+}
+
+.Navigation i {
+  color: var(--color-purple);
+  font-size: 30px;
+}
+
+/*-----------------------------------первая колонка------------------------------------------------*/
+.oneСolumn{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100vh;
+  background-color: var(--color-black);
+}
+
+
+/*-----------------------------------вторая колонка------------------------------------------------*/
+.twoСolumn{
+  background-color: var(--color-black);
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 50%;
+  height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: none; 
+
+}
+
+.twoСolumnDaughter{
+  -webkit-border-radius: 15px; 
+  border-radius: 15px; 
+  background-color: var(--color-black); 
+  padding: 0.1%;
+  margin: 4%;
+}
+
+/*-----------------------------------------третья колонка-------------------------------------*/
+.threeСolumn{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+  background-color: var(--color-black);
+  margin-top: 1.7%;
+}
+ 
+.threeСolumnDaughter {
+  -webkit-border-radius: 15px; 
+  border-radius: 15px; 
+  background-color: var(--color-black); 
+}
+
+
+/*-------------------------------Окно поиска-----------------------------*/
+.search {
+  background: var(--color-black);
+  padding-top: 1%;
+  position: relative;
+}
+
+.search input {
+width: 100%;
+height: 44px;
+padding-left: 10px;
+border: 2px solid var(--color-purple);
+border-radius: 5px;
+outline: none;
+background: white;
+}
+
+.search button {
+position: absolute; 
+top: 0;
+width: 8%;
+height: 100%;
+right: -15px;
+border: none;
+background: var(--color-purple);
+border-radius: 0 5px 5px 0;
+cursor: pointer;
+}
+
+.search button:before {
+content: "\f002";
+font-family: FontAwesome;
+font-size: 16px;
+color: white;
+}
+
+.search form {
+  position: relative;
+  width: 80%;
+  margin: auto;
+}
+
+/*---------------------------------Окно публикация-------------------------------*/
+
+.pub {
+  display: flex;
+  align-items: center;
+}
+
+.pub button{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 15px;
+  width: 15%;
+  height: 7%;
+  top: 90%;
+  left: 40%;
+  background: var(--color-purple);
+  cursor: pointer;
+
+}
+
+.pub a{
+  margin: 3%;
+  font-size: 23px;
+  color: white;
+  content: "\f002";
+  font-family: FontAwesome;
+}
+
+/*----------------------Луна справа сверху--------------------------------*/
+.dark-light {
+  color: var(--color-purple);
+  margin-left: 88%;
+  margin-bottom: 10%;
+ }
+ 
+ .dark-light i {
+   font-size: 28px;
+   margin: 0;
+   cursor: pointer;
+ }
+ 
