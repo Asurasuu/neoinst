@@ -31,8 +31,10 @@ git remote add origin git@github.com:Asurasuu/neoinst.git
 git pull origin master # (или git fetch, но тут смотреть придется по ситуации)
 ```
 
-## 2) Запуск приложения с docker-compose
+## 2) Запуск приложения с docker
 
 ```shell
-docker-compose up --build # можно добавить флаг -d, чтобы приложение работало в демон режиме
+docker build  -t python_app_neoinst .
+
+docker run -p 8080:8080 -d python_app_neoinst:latest
 ```
