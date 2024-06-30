@@ -36,5 +36,16 @@ git pull origin master # (или git fetch, но тут смотреть при�
 ```shell
 docker build  -t python_app_neoinst .
 
-docker run -p 8080:8080 -d python_app_neoinst:latest
+docker build -f ./postgresql.Dockerfile -t postgresql_app_neoinst .
+
+docker run --name pan_sql --rm -v /data:/data -e POSTGRES_USER=pan_user -e POSTGRES_PASSWORD=pan_password -e POSTGRES_DB=pan_db -p 5432:5432 -d postgresql_app_neoinst:latest
+
+docker run --name pan_sql --rm -v /data:/data  -p 5432:5432 -d postgresql_app_neoinst:latest
+
+docker run --name pan --rm -p 8080:8080 -d python_app_neoinst:latest
+```
+
+## 3) Подключиться к БД в контейнере
+```shell
+psql -d pan_db -U pan_user -W
 ```

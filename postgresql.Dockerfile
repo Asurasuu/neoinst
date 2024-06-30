@@ -1,0 +1,9 @@
+FROM postgres:14.3
+
+ENV POSTGRES_USER pan_user
+ENV POSTGRES_PASSWORD pan_password
+ENV POSTGRES_DB pan_db
+
+EXPOSE 5432
+
+VOLUME [ "/data" ]
