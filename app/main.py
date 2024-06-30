@@ -9,10 +9,7 @@ import requests  # Импортируем requests для выполнения H
 from fastapi.security import OAuth2PasswordRequestForm
 from datetime import datetime, timedelta
 from typing import Union
-
-# Нужно для сохранения токеты
-TOKEN = None
-USER = None
+from sqlalchemy.orm.exc import UnmappedInstanceError
 
 # Создание таблиц в базе данных
 
@@ -29,12 +26,13 @@ templates = Jinja2Templates(directory="./pages")
 
 # Главная страница
 @app.get("/", response_class=HTMLResponse)
-def read_item(request: Request, usr_id: Union[str, None] = Cookie(default=None)):
-    global USER
+def read_item(request: Request, db: Session = Depends(database.get_db), usr_id: Union[str, None] = Cookie(default=None)):
 
     if usr_id is not None: 
+        user = db.query(models.User).filter(models.User.id == usr_id).first()
+        
         template = "index.html"
-        context = {"request": request, 'user': USER}
+        context = {"request": request, 'user': user}
 
         return templates.TemplateResponse(template, context)
 
@@ -99,12 +97,12 @@ def profile(request: Request, db: Session = Depends(database.get_db), usr_id: Un
 
 # Страница настройки
 @app.get("/settings", response_class=HTMLResponse)
-def read_item(request: Request, usr_id: Union[str, None] = Cookie(default=None)):
-    global USER
+def read_item(request: Request, db: Session = Depends(database.get_db), usr_id: Union[str, None] = Cookie(default=None)):
+    user = db.query(models.User).filter(models.User.id == usr_id).first()
 
     if usr_id is not None: 
         template = "settings.html"
-        context = {"request": request, 'user': USER}
+        context = {"request": request, 'user': user}
 
         return templates.TemplateResponse(template, context)
 
@@ -164,15 +162,11 @@ def read_item(username: str = Form(...), email: str = Form(...), password: str =
 # Новый маршрут для аутентификации и сохранения токена
 @app.post("/login")
 def read_item(username: str = Form(...), password: str = Form(...), db: Session = Depends(database.get_db), usr_id: Union[str, None] = Cookie(default=None)):
-    global TOKEN
-    global USER
-
     if usr_id is None: 
         user = db.query(models.User).filter(models.User.username == username).first()
 
         if auth.verify_password(password, user.hashed_password):
             if user:
-                # USER = user
                 usr_id = user.id
 
                 resp = RedirectResponse("/profile", status_code=302)
@@ -186,14 +180,13 @@ def read_item(username: str = Form(...), password: str = Form(...), db: Session 
 # Функа выхода
 @app.get("/logout")
 def logout(request: Request, usr_id: Union[str, None] = Cookie(default=None)):
-    global USER
-
-    if USER is not None:
-        USER = None
+    if usr_id is not None:
     
-    resp = RedirectResponse("/")
-    resp.delete_cookie(key="usr_id")
-    return resp
+        resp = RedirectResponse("/")
+        resp.delete_cookie(key="usr_id")
+        return resp
+
+    return RedirectResponse("/auth")
 
 # Отправляем сообщение
 @app.post("/sendmessage")
@@ -206,4 +199,29 @@ def send_message(from_user_id: str = Form(...), text_message: str = Form(...), d
 
         return RedirectResponse("/messanger/" + from_user_id, status_code=302)
 
+    return RedirectResponse("/auth")  # Перенаправление на страницу входа
+
+# TODO выдает ошибку после сохранения данных
+@app.post("/savesettings")
+def save_settings(request: Request, surname: str = Form(...), name: str = Form(...), email: str = Form(...), 
+                    phone: str = Form(...), about: str = Form(...),
+                    db: Session = Depends(database.get_db), 
+                    usr_id: Union[str, None] = Cookie(default=None)):
+    
+    if usr_id is not None:
+        user = db.query(models.User).filter(models.User.id == usr_id).update({
+            "name": name, "surname": surname,
+            "phone": phone, "email": email,
+            "about": about
+        })
+
+        db.commit()
+        try:
+            db.refresh(user)
+        except UnmappedInstanceError as e:
+            pass
+
+        resp = RedirectResponse("/settings", status_code = 302)
+        return resp 
+    
     return RedirectResponse("/auth")  # Перенаправление на страницу входа

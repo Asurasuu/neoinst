@@ -25,58 +25,58 @@
                 <div class="profile-text-container">
                     <h1 class="profile-title">Профиль</h1>
                     <p class="profile-email">
-                        alextorpv@gmail.com
+                        {{ user.email }}
                     </p>
                 </div>
             </div>
 
             <div class="menu">
                 <a href="#" class="menu-link"><i class="fa-solid fa-user-tie menu-icon"></i>Основные</a>
-                <a href="#" class="menu-link"><i class="fa-solid fa-key menu-icon"></i>Пароль</a>
-                <a href="#" class="menu-link"><i class="fa-solid fa-address-card menu-icon"></i>Профиль</a>
+                <!-- <a href="#" class="menu-link"><i class="fa-solid fa-key menu-icon"></i>Пароль</a>
+                <a href="#" class="menu-link"><i class="fa-solid fa-address-card menu-icon"></i>Профиль</a> -->
                 <a href="/logout" class="menu-link"><i class="fa-solid fa-right-from-bracket menu-icon"></i>Выйти</a>
             </div>
         </div>
 
-        <form class="account">
+        <form class="account" action="/savesettings" method="post">
             <div class="account-header">
                 <h1 class="account-title">Основное</h1>
                 <div class="btn-container">
-                    <button class="btn-ok">Сохранить</button>
-                    <button class="btn-cancel">Отмена</button>
+                    <button class="btn-ok" type="submit">Сохранить</button>
+                    <!-- <button class="btn-cancel">Отмена</button> -->
                 </div>
             </div>
 
             <div class="account-edit">
                 <div class="input-container">
                     <label>Фамилия</label>
-                    <input type="text" placeholder="Фамилия">
+                    <input type="text" value="{{ user.surname }}" placeholder="Фамилия" name="surname">
                 </div>
                 <div class="input-container">
                     <label>Имя</label>
-                    <input type="text" placeholder="Имя">
+                    <input type="text" value="{{ user.name }}" placeholder="Имя" name="name">
                 </div>
             </div>
 
             <div class="account-edit">
                 <div class="input-container">
                     <label>Email</label>
-                    <input type="text" placeholder="Email">
+                    <input type="text" value="{{ user.email }}" placeholder="Email" name="email">
                 </div>
                 <div class="input-container">
                     <label>Номер телефона</label>
-                    <input type="text" placeholder="Номер телефона">
+                    <input type="text" value="{{ user.phone}}" placeholder="Номер телефона" name="phone">
                 </div>
             </div>
 
             <div class="account-edit">
                 <div class="input-container">
                     <label>О себе</label>
-                    <input type="text" placeholder="О себе">
+                    <input type="text" value="{{ user.about }}" placeholder="О себе" name="about">
                 </div>
             </div>
             
-            <div class="account-edit">
+            <!-- <div class="account-edit">
                 <div class="input-container2">
                     <label>Страна</label>
                     <select class="custom-select">
@@ -86,7 +86,7 @@
                         <option>Китай</option>
                     </select>
                 </div>
-            </div>
+            </div> -->
         </form>
     </div>
 

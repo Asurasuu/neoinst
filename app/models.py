@@ -10,6 +10,10 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String, unique=True, index=True)
     email = Column(String, unique=True, index=True)
+    name = Column(String,)
+    surname = Column(String,)
+    about = Column(String,)
+    phone = Column(String,)
     hashed_password = Column(String)
 
     # sent_messages = relationship("Message", foreign_keys="[Message.sender_id]", back_populates="sender")
