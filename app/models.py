@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship
 from database import Base
 
 # Тута описываются модели данных (на их основе создаются таблицы)
@@ -11,9 +12,17 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     hashed_password = Column(String)
 
-# Модель сообзений
-# class Message(Base):
-#     __tablename__ = "messages"
+    # sent_messages = relationship("Message", foreign_keys="[Message.sender_id]", back_populates="sender")
+    # received_messages = relationship("Message", foreign_keys="[Message.recipient_id]", back_populates="recipient")
 
-#     id = Column(Integer, primary_key=True, index=True)
-#     from_id = 
+# Модель сообзений
+class Message(Base):
+    __tablename__ = "messages"
+
+    id = Column(Integer, primary_key=True, index=True)
+    sender_id = Column(Integer, )#ForeignKey("users.id"))
+    recipient_id = Column(Integer,)# ForeignKey("users.id"))
+    content = Column(String)
+
+    # sender = relationship("User", foreign_keys=[sender_id], back_populates="sent_messages")
+    # recipient = relationship("User", foreign_keys=[recipient_id], back_populates="received_messages")

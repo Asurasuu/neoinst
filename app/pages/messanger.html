@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeoInst</title>
+    <title>Мессенджер</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', path = 'mess.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path = 'style_messanger.css') }}">
     <!--Подключаю шрифты Awesome-->
     <script src="https://kit.fontawesome.com/758af4b3e3.js" crossorigin="anonymous"></script>
 
@@ -55,124 +55,100 @@
     <div class="app">
         <div class="header">
 
+        <div class="dark-light" id="themeToggle">
+            <i class="fa-regular fa-moon"></i>
+        </div>
 
-<!-----------------Кнопка луны, тёмная тема----------------->
-      <div class="dark-light" id="themeToggle">
-          <i class="fa-regular fa-moon"></i>
-      </div>
-
-
-<!--Поиск-->
-        <div class="search">
+        <!-- <div class="search">
           <form>
             <input type="text" placeholder="Искать здесь...">
             <button type="submit"></button>
           </form>
-        </div>
+        </div> -->
         
-
-<!--столбец с друзьями-->
         <div class="user-settings">
         </div>
-        </div>
-        <div class="wrapper">
-         <div class="conversation-area">
-          <div class="msg">
-           <img class="msg-profile" src="{{ url_for('images', path = '/avatars/alexander.jpg') }}" alt="" />
-           <div class="msg-detail">
-            <div class="msg-username">Александр Торопов</div>
-            <div class="msg-content">
-             <span class="msg-message">Великий cs-сер</span>
-             <span class="msg-date">1day</span>
-            </div>
-           </div>
-          </div>
-          <div class="msg">
-           <img class="msg-profile" src="{{ url_for('images', path = '/avatars/andrey.jpg') }}" alt="" />
-           <div class="msg-detail">
-            <div class="msg-username">Андрей Новоселов</div>
-            <div class="msg-content">
-             <span class="msg-message">Кроссфитер (жмёт сотку)</span>
-             <span class="msg-date">1day</span>
-            </div>
-           </div>
-          </div>
-          <button class="add"></button>
-          <div class="overlay"></div>
-         </div>
-         <div class="chat-area">
-          <div class="chat-area-header">
-           <div class="chat-area-group">
-          </div>
+    </div>
+    
+    <!-- Доступные чаты -->
+    <div class="wrapper">
+        <div class="conversation-area">
+            {% for user in users %}
+                <a href="/messanger/{{ user.id }}">
+                    <div class="msg">
+                        <img class="msg-profile" src="{{ url_for('images', path='ava.jpg') }}" alt="" />
+                        <div class="msg-detail">
+                        <div class="msg-username">{{ user.username }}</div>
+                        <div class="msg-content">
+                            <!-- <span class="msg-message">Великий cs-сер</span>
+                            <span class="msg-date">1day</span> -->
+                        </div>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
         </div>
 
 <!--Мессенджер--> 
-          <div class="chat-area-main">
-           <div class="chat-msg">
-            <div class="chat-msg-profile">
-             <img class="chat-msg-img" src="{{ url_for('images', path = '/avatars/alexander.jpg') }}" />
-             <div class="chat-msg-date">Message seen 1.22pm</div>
-            </div>
-            <div class="chat-msg-content">
-             <div class="chat-msg-text">
-              </div>
-             <div class="chat-msg-text">Привет, как дела?</div>
-            </div>
-           </div>
-           <div class="chat-msg owner">
-            <div class="chat-msg-profile">
-             <img class="chat-msg-img" src="{{ url_for('images', path = '/avatars/khanat.jpg') }}" />
-             <div class="chat-msg-date">Message seen 1.22pm</div>
-            </div>
-            <div class="chat-msg-content">
-             <div class="chat-msg-text">Хорошо</div>
-            </div>
-           </div>
+        {% if iid %}
+            <div class="chat-area-main">
+                <h2 style="text-align: center; padding-bottom: 10px;">Чат c {{ iid.username }}</h2>
+                <div class="messages-all-block" style="height: 650px; overflow-y: scroll;">
+                    {% for message in messages %}
+                        {% if message.sender_id == user.id %}
+                        <div class="chat-msg owner">
+                            <div class="chat-msg-profile">
+                                <!-- <div class="chat-msg-username">Lonni</div> -->
+                                <img class="chat-msg-img" src="{{ url_for('images', path = '/ava.jpg') }}" />
+                                <!-- <div class="chat-msg-date">Message seen 1.22pm</div> -->
+                            </div>
+                            <div class="chat-msg-content">
+                                <div class="chat-msg-text">{{ message.content }}</div>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="chat-msg">
+                            <div class="chat-msg-profile">
+                                <!-- <div class="chat-msg-username">Lonni</div> -->
+                                <img class="chat-msg-img" src="{{ url_for('images', path = '/ava.jpg') }}" />
+                                <!-- <div class="chat-msg-date">Message seen 1.22pm</div> -->
+                            </div>
+                            <div class="chat-msg-content">
+                                <div class="chat-msg-text">{{ message.content }}</div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                    
+    
+                    <!-- <div class="chat-msg owner">
+                        <div class="chat-msg-profile">
+                            <div class="chat-msg-username">Khanat</div>
+                            <img class="chat-msg-img" src="{{ url_for('images', path = '/avatars/khanat.jpg') }}" />
+                            <div class="chat-msg-date">Message seen 1.22pm</div>
+                        </div>
+                        <div class="chat-msg-content">
+                            <div class="chat-msg-text">Хорошо</div>
+                        </div>
+                    </div> -->
+                </div>
 
+                <form action="/sendmessage" method="post">
+                    <div class="chat-area-footer">
+                        <button class="transparent-button"><i class="fa" style="font-size:24px; display: none">&#xf0c6;</i></button>
+                        
+                        <input type="text" name="from_user_id" value="{{ iid.id }}" style="display: none">
+                        <input type="text" name="text_message" placeholder="Напиши сообщение..." autofocus required />
+                    
+                        <button class="transparent-button"><i class="fa" style="font-size:24px">&#xf1b0;</i></button>
+                    </div>
+                </form>
 
-
-           <div class="chat-msg">
-            <div class="chat-msg-profile">
-             <img class="chat-msg-img" src="{{ url_for('images', path = '/avatars/andrey.jpg') }}"/>
-             <div class="chat-msg-date">Message seen 3.16pm</div>
+                </div>
             </div>
-            <div class="chat-msg-content">
-             <div class="chat-msg-text">Привет</div>
-            </div>
-           </div>
-           <div class="chat-msg">
-            <div class="chat-msg-profile">
-             <img class="chat-msg-img" src="{{ url_for('images', path = '/avatars/alexander.jpg') }}">
-             <div class="chat-msg-date">Message seen 3.16pm</div>
-            </div>
-            <div class="chat-msg-content">
-             <div class="chat-msg-text">Понятно, у меня тоже</div>
-            </div>
-           </div>
-           <div class="chat-msg owner">
-            <div class="chat-msg-profile">
-             <img class="chat-msg-img" src="{{ url_for('images', path = '/avatars/khanat.jpg') }}"/>
-             <div class="chat-msg-date">Message seen 2.50pm</div>
-            </div>
-            <div class="chat-msg-content">
-             <div class="chat-msg-text">Тебе тоже привет</div>
-            </div>
-           </div>
+        {% endif%}
+    </div>
 
-
-          <div class="chat-area-footer">
-
-            <button class="transparent-button"><i class="fa" style="font-size:24px">&#xf0c6;</i></button>
-            
-           <input type="text" placeholder="Type something here..." />
-           
-           <button class="transparent-button"><i class="fa" style="font-size:24px">&#xf1b0;</i></button>
-          </div>
-         </div>
-
-        </div>
-       </div>
-
-       <script src="{{ url_for('static', path = '/DarkAndWhite.js') }}"></script>
+    <script src="{{ url_for('static', path = '/DarkAndWhite.js') }}"></script>
 </body>
 </html>

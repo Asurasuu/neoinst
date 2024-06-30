@@ -15,6 +15,11 @@ class User(BaseModel):
     class Config:
         orm_mode = True
 
-class Token(BaseModel):
-    access_token: str
-    token_type: str
+
+class Message(BaseModel):
+    sender_id: int
+    recipient_id: int
+    content: str
+
+    class Config:
+        orm_mode = True
