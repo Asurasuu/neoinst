@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey, LargeBinary
 from sqlalchemy.orm import relationship
 from database import Base
 
@@ -30,3 +30,12 @@ class Message(Base):
 
     # sender = relationship("User", foreign_keys=[sender_id], back_populates="sent_messages")
     # recipient = relationship("User", foreign_keys=[recipient_id], back_populates="received_messages")
+
+class Photo(Base):
+    __tablename__ = "photos"
+
+    id = Column(Integer, primary_key=True, index=True)
+    filename = Column(String, index=True)
+    content = Column(LargeBinary,)
+    text = Column(String,)
+    user_id = Column(Integer,)

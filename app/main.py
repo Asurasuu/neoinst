@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request, Depends, HTTPException, status, Form, Cookie
+from fastapi import FastAPI, Request, Depends, HTTPException, status, Form, Cookie, File, UploadFile
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -10,6 +10,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 from datetime import datetime, timedelta
 from typing import Union
 from sqlalchemy.orm.exc import UnmappedInstanceError
+import aiofiles
 
 # Создание таблиц в базе данных
 
@@ -30,9 +31,10 @@ def read_item(request: Request, db: Session = Depends(database.get_db), usr_id: 
 
     if usr_id is not None: 
         user = db.query(models.User).filter(models.User.id == usr_id).first()
+        photos = db.query(models.Photo).all()
         
         template = "index.html"
-        context = {"request": request, 'user': user}
+        context = {"request": request, 'user': user, 'photos': photos}
 
         return templates.TemplateResponse(template, context)
 
@@ -77,13 +79,10 @@ def read_item(request: Request, id: int, db: Session = Depends(database.get_db),
     return RedirectResponse("/auth")  # Перенаправление на страницу входа
 
 # Страница о проекте
-@app.get("/about", response_class=HTMLResponse)
+@app.get("/about", response_class=RedirectResponse)
 def read_item(request: Request):
-    template = "about.html"
-    context = {"request": request}
-
-    return templates.TemplateResponse(template, context)
-
+    return RedirectResponse('https://neo-inst.vercel.app/abouts/index.html#')
+    
 @app.get("/profile", response_class=HTMLResponse)
 def profile(request: Request, db: Session = Depends(database.get_db), usr_id: Union[str, None] = Cookie(default=None)):
     if usr_id: 
@@ -225,3 +224,22 @@ def save_settings(request: Request, surname: str = Form(...), name: str = Form(.
         return resp 
     
     return RedirectResponse("/auth")  # Перенаправление на страницу входа
+
+# Загрузка файлов
+
+@app.post("/uploadfiles")
+async def upload_photos(request: Request, text: str = Form(...), file: UploadFile = File(...),
+                        db: Session = Depends(database.get_db), 
+                        usr_id: Union[str, None] = Cookie(default=None)):
+    
+    async with aiofiles.open(f"./images/posts/{file.filename}", 'wb') as out_file:
+        content = await file.read()
+        await out_file.write(content)
+
+        
+    new_photo = models.Photo(filename=file.filename, content=content, text = text, user_id=usr_id)
+    db.add(new_photo)
+    db.commit()
+    db.refresh(new_photo)
+
+    return true

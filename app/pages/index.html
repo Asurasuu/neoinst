@@ -10,6 +10,46 @@
     <link rel="stylesheet" href="{{ url_for('static', path='/index.css') }}"> 
     <!--Подключаю шрифты Awesome-->
     <script src="https://kit.fontawesome.com/758af4b3e3.js" crossorigin="anonymous"></script>
+
+    <style>
+        /* Стиль для затемнения фона */
+        .modal-overlay {
+            display: none; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1; 
+        }
+
+        /* Стиль для модального окна */
+        .modal-content {
+            display: none; 
+            position: fixed; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            background: white; 
+            padding: 20px; 
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+            z-index: 2; 
+            border-radius: 10px;
+        }
+
+        /* Кнопка закрытия модального окна */
+        .close-button {
+            position: absolute; 
+            top: 10px; 
+            right: 10px; 
+            background: #9508CD; 
+            color: white; 
+            border: none; 
+            padding: 5px 10px; 
+            cursor: pointer; 
+        }
+    </style>
 </head>
 <body>
 
@@ -60,88 +100,42 @@
           <button type="submit"></button>
         </form> -->
         <div class="twoСolumnDaughter">
+            {% for photo in photos%}
+                <!-- <div class="post_block">
+                    <div class="post_header">
+                        <img src="{{ url_for('images', path='/ava.jpg') }}" alt="">
+                        <span>{{user.username}}</span>
+                    </div>
 
-          <p style="margin: 5%" align="left">I</p>
-  
-          <p style="margin: 5%" align="left">M</p>
-  
-          <p style="margin: 5%" align="left">A</p>
-  
-          <p style="margin: 5%" align="left">G</p>
+                    <div class="post_img">
+                        <img src="{{ url_for('images', path='/posts/' + photo.filename) }}" alt="{{ photo.filename }}">
+                    </div>
 
-          <p style="margin: 5%" align="left">E</p>
-  
-          <p style="margin: 5%" align="left">S</p>
+                    <div class="post_footer">
+                        <p>{{ photo.text }}</p>
+                    </div>
+                </div> -->
 
-          <p style="margin: 5%" align="left">I</p>
-  
-          <p style="margin: 5%" align="left">M</p>
-  
-          <p style="margin: 5%" align="left">A</p>
-  
-          <p style="margin: 5%" align="left">G</p>
-
-          <p style="margin: 5%" align="left">E</p>
-  
-          <p style="margin: 5%" align="left">S</p>
+                <!-- <div class="services-list"> -->
+                  <div class="card">
+                      <div class="img1">
+                          <img src="{{ url_for('images', path='/ava.jpg') }}">
+                          <h2>{{user.username}}</h2>
+                      </div>
+                      <div class="img2-container">
+                          <img class="img2" src="{{ url_for('images', path='/posts/' + photo.filename) }}" alt="{{ photo.filename }}">
+                      </div>
+                      <div class="text-container">
+                          <p>
+                            {{ photo.text }}
+                          </p>
+                      </div>
+                  </div>
+              <!-- </div> -->
+                
+            {% endfor %}
   
         </div>
-
-        <div class="twoСolumnDaughter">
-
-          <p style="margin: 5%" align="left">I</p>
-  
-          <p style="margin: 5%" align="left">M</p>
-  
-          <p style="margin: 5%" align="left">A</p>
-  
-          <p style="margin: 5%" align="left">G</p>
-
-          <p style="margin: 5%" align="left">E</p>
-  
-          <p style="margin: 5%" align="left">S</p>
-
-          <p style="margin: 5%" align="left">I</p>
-  
-          <p style="margin: 5%" align="left">M</p>
-  
-          <p style="margin: 5%" align="left">A</p>
-  
-          <p style="margin: 5%" align="left">G</p>
-
-          <p style="margin: 5%" align="left">E</p>
-  
-          <p style="margin: 5%" align="left">S</p>
-  
-        </div> 
-
-        <div class="twoСolumnDaughter">
-
-          <p style="margin: 5%" align="left">I</p>
-  
-          <p style="margin: 5%" align="left">M</p>
-  
-          <p style="margin: 5%" align="left">A</p>
-  
-          <p style="margin: 5%" align="left">G</p>
-
-          <p style="margin: 5%" align="left">E</p>
-  
-          <p style="margin: 5%" align="left">S</p>
-
-          <p style="margin: 5%" align="left">I</p>
-  
-          <p style="margin: 5%" align="left">M</p>
-  
-          <p style="margin: 5%" align="left">A</p>
-  
-          <p style="margin: 5%" align="left">G</p>
-
-          <p style="margin: 5%" align="left">E</p>
-  
-          <p style="margin: 5%" align="left">S</p>
-  
-        </div> 
       </div>
     </div>
 
@@ -163,14 +157,68 @@
 
 <!---------------------------Окно публикация------------------------------>
     <div class="pub">
-      <button> 
+      <button id="uploadBtn"> 
         <a>Публикация</a>
         <a>&#xf055;</a>
       </button>
     </div>
 
+    <!-- Затемняющий фон -->
+    <div id="modalOverlay" class="modal-overlay"></div>
+
+    <!-- Модальное окно -->
+    <div id="modalContent" class="modal-content">
+        <button class="close-button" id="closeBtn">X</button>
+        <form id="uploadForm">
+            <label for="file">Выберите фото:</label>
+            <input type="file" id="file" name="file" accept="image/*" required>
+            <br><br>
+            <label for="user">Подпись:</label>
+            <input type="text" id="user" name="text" required>
+            <button type="submit">Загрузить</button>
+        </form>
+    </div>
+
 
     <script src="{{ url_for('static', path='/DarkAndWhite.js') }}"></script>
+
+    <script>
+        const uploadBtn = document.getElementById("uploadBtn");
+        const modalOverlay = document.getElementById("modalOverlay");
+        const modalContent = document.getElementById("modalContent");
+        const closeBtn = document.getElementById("closeBtn");
+
+        uploadBtn.onclick = function() {
+            modalOverlay.style.display = "block";
+            modalContent.style.display = "block";
+        }
+
+        closeBtn.onclick = function() {
+            modalOverlay.style.display = "none";
+            modalContent.style.display = "none";
+        }
+
+        modalOverlay.onclick = function() {
+            modalOverlay.style.display = "none";
+            modalContent.style.display = "none";
+        }
+
+        document.getElementById("uploadForm").onsubmit = async function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const response = await fetch('/uploadfiles/', {
+                method: 'POST',
+                body: formData
+            });
+            
+            modalOverlay.style.display = "none";
+            modalContent.style.display = "none";
+
+            if( response ) {
+                window.location.reload(true);
+            }
+        }
+    </script>
 
 </body>
 </html>
